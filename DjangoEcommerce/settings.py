@@ -129,3 +129,10 @@ MEDIA_ROOT=os.path.join(BASE_DIR,"media")
 STATIC_URL="/static/"
 STATIC_ROOT=os.path.join(BASE_DIR,"static")
 BASE_URL="http://127.0.0.1:8000"
+
+
+# Celery Settings
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'

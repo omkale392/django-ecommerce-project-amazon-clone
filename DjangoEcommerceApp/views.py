@@ -30,3 +30,10 @@ def adminLogoutProcess(request):
     logout(request)
     messages.success(request,"Logout Successfully!")
     return HttpResponseRedirect(reverse("admin_login"))
+
+
+from .tasks import send_email_task
+
+def some_view(request):
+    send_email_task.delay()
+    return HttpResponse("Email will be sent!")
